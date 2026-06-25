@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏体育 · 赛事数据与体验平台</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, "Noto Sans SC", sans-serif;
+      background: #f5f7fa;
+      color: #1f2a3d;
+      line-height: 1.6;
+    }
+
+    /* Hero 深色区域 */
+    .hero {
+      background: linear-gradient(145deg, #0b1425 0%, #1a2639 100%);
+      color: #eef1f5;
+      padding: 4rem 1.8rem 5.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: -20%;
+      width: 150%;
+      height: 150%;
+      background: radial-gradient(circle at 30% 40%, rgba(70, 130, 220, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 680px;
+      margin: 0 auto 2rem;
+      color: #bac9dd;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .hero .lead-link {
+      display: inline-block;
+      background: #2f7cf0;
+      color: #fff;
+      font-weight: 500;
+      padding: 0.7rem 2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.15s;
+      position: relative;
+    }
+
+    .hero .lead-link:hover {
+      background: #1d5cc7;
+      transform: scale(1.02);
+    }
+
+    /* 浅色正文区 */
+    .content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.8rem 1.8rem 4rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+      border-left: 5px solid #2f7cf0;
+      padding-left: 1rem;
+      color: #111c2e;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+      transition: box-shadow 0.2s, transform 0.15s;
+      border: 1px solid #e9edf2;
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 28px rgba(0, 20, 50, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #1f2a3d;
+    }
+
+    .card p {
+      font-size: 0.97rem;
+      color: #3f4d63;
+      line-height: 1.7;
+    }
+
+    .highlight-accent {
+      color: #2f7cf0;
+      font-weight: 500;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 2rem;
+    }
+
+    .feature-list li {
+      padding: 0.5rem 0 0.5rem 1.8rem;
+      position: relative;
+      font-size: 1rem;
+      border-bottom: 1px solid #eef1f6;
+    }
+
+    .feature-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #2f7cf0;
+      font-weight: bold;
+    }
+
+    .faq-summary {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 2rem 1.6rem;
+      margin: 2.5rem 0 2rem;
+      border: 1px solid #e1e8f0;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      font-size: 1.05rem;
+      color: #0b1b33;
+    }
+
+    .faq-item p {
+      margin: 0.1rem 0 0 0;
+      color: #3c4b62;
+      font-size: 0.96rem;
+    }
+
+    .bottom-link-section {
+      text-align: center;
+      padding: 2.5rem 0 1rem;
+      border-top: 1px solid #dae0e9;
+      margin-top: 1rem;
+    }
+
+    .bottom-link-section p {
+      font-size: 1rem;
+      color: #32425a;
+    }
+
+    .bottom-link-section a {
+      color: #2f7cf0;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .bottom-link-section a:hover {
+      border-bottom-color: #2f7cf0;
+    }
+
+    .footer-note {
+      font-size: 0.8rem;
+      color: #6d7b92;
+      text-align: center;
+      padding: 1.8rem 0 0.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .content {
+        padding: 2rem 1.2rem 3rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+      .card-grid {
+        gap: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero 区域 -->
+  <section class="hero">
+    <h1>爱游戏体育 · 数据与体验</h1>
+    <p>从赛事信息整合到运动数据洞察，<a href="https://panel-aigamesport.com" style="color: #8ab8ff; text-decoration: underline; text-underline-offset: 3px;">爱游戏体育</a> 为爱好者与从业者提供清晰、结构化的体育内容参考平台。</p>
+    <a href="https://panel-aigamesport.com" class="lead-link">爱游戏体育</a>
+  </section>
+
+  <!-- 浅色正文主区域 -->
+  <div class="content">
+
+    <!-- 优势区 / 特点卡片 -->
+    <h2 class="section-title">平台特点</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>赛事信息聚合</h3>
+        <p>覆盖多项主流运动项目，通过结构化方式呈现比赛数据、队伍动态与赛程安排。方便用户快速检索与自己关注的赛事相关的内容。</p>
+      </div>
+      <div class="card">
+        <h3>数据维度参考</h3>
+        <p>提供历史对阵、近期表现及部分进阶统计，帮助使用者从不同层面了解比赛背景。数据仅供信息参考，不构成任何预测。</p>
+      </div>
+      <div class="card">
+        <h3>界面清晰易用</h3>
+        <p>注重信息层级与阅读效率，减少冗余干扰。无论是通过桌面端还是移动端浏览，都能获得相对一致的查看体验。</p>
+      </div>
+    </div>
+
+    <!-- 说明区 / 场景与提示 -->
+    <h2 class="section-title">适用场景与说明</h2>
+    <ul class="feature-list">
+      <li>日常关注体育赛事动态，希望在一个界面中浏览多项比赛信息。</li>
+      <li>对运动数据感兴趣，希望了解队伍或选手近期表现及历史交锋记录。</li>
+      <li>内容整理自公开信息来源，平台不提供实时投注或博彩服务。</li>
+      <li>所有数据均以参考为目的，使用者应结合自身判断，理性对待体育信息。</li>
+    </ul>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+      <h3 style="font-size: 1.3rem; margin-bottom: 1.2rem; font-weight: 600; color: #0b1b33;">常见问题摘要</h3>
+      <div class="faq-item">
+        <strong>爱游戏体育 主要提供什么内容？</strong>
+        <p>主要整理并展示多类体育赛事的赛程、比分、队伍数据以及部分历史统计，方便用户集中浏览。</p>
+      </div>
+      <div class="faq-item">
+        <strong>数据更新频率如何？</strong>
+        <p>平台根据公开赛事进程进行周期性更新，但无法保证实时同步。重要数据建议以官方发布为准。</p>
+      </div>
+      <div class="faq-item">
+        <strong>是否需要注册才能使用？</strong>
+        <p>绝大部分内容可直接浏览，部分个性化功能可能需要注册账户。具体以页面实际提示为准。</p>
+      </div>
+      <p style="margin-top: 1.2rem; font-size: 0.95rem; color: #44556b;">更多疑问可前往 <a href="https://panel-aigamesport.com" style="color: #2f7cf0; text-decoration: underline;">爱游戏体育</a> 页面查看说明。</p>
+    </div>
+
+    <!-- 底部链接区域 -->
+    <div class="bottom-link-section">
+      <p>若希望进一步浏览赛事信息与数据整合内容，可直接访问 <a href="https://panel-aigamesport.com">爱游戏体育</a> 平台主页。</p>
+      <div class="footer-note">
+        — 仅供信息参考，请理性对待体育数据 —
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
