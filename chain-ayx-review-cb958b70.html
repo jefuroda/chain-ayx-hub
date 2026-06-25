@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 – 产品说明 · 识别与使用</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #fbe9d7 0%, #f7d8c4 40%, #f5c9b0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.6;
+            color: #3a2e28;
+        }
+
+        .page-wrap {
+            max-width: 980px;
+            width: 100%;
+        }
+
+        /* 主卡片 */
+        .card {
+            background: #fffefc;
+            border-radius: 36px 36px 28px 28px;
+            box-shadow: 0 12px 30px rgba(160, 100, 70, 0.14),
+                        0 4px 8px rgba(100, 60, 40, 0.06);
+            padding: 2.4rem 2.6rem 2.8rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        @media (max-width: 520px) {
+            .card {
+                padding: 1.6rem 1.4rem 2rem;
+                border-radius: 28px 28px 22px 22px;
+            }
+        }
+
+        /* hero 区 */
+        .hero {
+            text-align: center;
+            margin-bottom: 2.2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 550;
+            letter-spacing: -0.01em;
+            background: linear-gradient(to right, #7a4b38, #b06846);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #6b5142;
+            border-bottom: 1px dashed #e6d3c6;
+            padding-bottom: 0.7rem;
+            margin-top: 0.2rem;
+            display: inline-block;
+        }
+
+        /* 摘要段落 */
+        .summary {
+            background: #faf3ed;
+            padding: 1.4rem 1.8rem;
+            border-radius: 28px;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            border-left: 5px solid #d9a887;
+        }
+
+        .summary p {
+            margin-bottom: 0.5rem;
+        }
+
+        .summary p:last-child {
+            margin-bottom: 0;
+        }
+
+        .summary strong {
+            color: #7b4f3b;
+        }
+
+        /* 亮点网格 */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem 1.2rem;
+            margin: 2rem 0 1.8rem;
+        }
+
+        .highlight-item {
+            background: #fff8f2;
+            border-radius: 24px;
+            padding: 1.2rem 1.1rem 1.1rem;
+            border: 1px solid #f0ddd0;
+            box-shadow: 0 2px 6px rgba(140, 90, 60, 0.06);
+        }
+
+        .highlight-item h3 {
+            font-size: 1.1rem;
+            font-weight: 550;
+            color: #794f3b;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.3px;
+        }
+
+        .highlight-item p {
+            font-size: 0.92rem;
+            color: #4e3b30;
+        }
+
+        /* 使用建议 / 场景 */
+        .usage-section {
+            background: #f8ede5;
+            border-radius: 28px;
+            padding: 1.4rem 1.8rem;
+            margin: 1.8rem 0 2rem;
+        }
+
+        .usage-section h2 {
+            font-size: 1.3rem;
+            font-weight: 530;
+            color: #5c3f30;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .usage-section h2::before {
+            content: "▹";
+            color: #b47a5f;
+            font-size: 1.5rem;
+        }
+
+        .usage-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .usage-item {
+            flex: 1 1 180px;
+            background: #fffaf6;
+            border-radius: 20px;
+            padding: 0.9rem 1rem;
+            border: 1px solid #e5cebe;
+        }
+
+        .usage-item .label {
+            font-weight: 530;
+            color: #7d5541;
+            display: block;
+            margin-bottom: 0.15rem;
+            font-size: 0.98rem;
+        }
+
+        .usage-item .desc {
+            font-size: 0.9rem;
+            color: #4e3a2e;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #fffbf8;
+            border-radius: 24px;
+            padding: 1.2rem 1.6rem 1.6rem;
+            margin: 2rem 0 1.6rem;
+            border: 1px solid #eeded1;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.2rem;
+            font-weight: 530;
+            color: #5f4234;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-item {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #f3e4d9;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #7c5541;
+        }
+
+        .faq-a {
+            color: #4d3a2f;
+            font-size: 0.92rem;
+            margin-top: 0.15rem;
+        }
+
+        /* 可信但克制的说明 */
+        .note {
+            background: #f2e3d8;
+            border-radius: 30px;
+            padding: 1rem 1.6rem;
+            font-size: 0.92rem;
+            color: #4f3a2d;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.3rem 0.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .note a {
+            color: #7b503a;
+            font-weight: 520;
+            text-decoration: none;
+            border-bottom: 2px solid #dbb7a1;
+            padding: 0 2px;
+            transition: border-color 0.15s, background 0.15s;
+            border-radius: 8px 8px 4px 4px;
+        }
+
+        .note a:hover {
+            background: #dbbcac;
+            border-bottom-color: #a46b4e;
+        }
+
+        /* 圆角链接按钮感（用于句子中的链接也保持风格） */
+        .inline-link-like {
+            color: #7c523c;
+            font-weight: 520;
+            text-decoration: none;
+            background: #f3e4d9;
+            padding: 0.15rem 0.6rem;
+            border-radius: 30px;
+            transition: background 0.15s, box-shadow 0.1s;
+            white-space: nowrap;
+        }
+
+        .inline-link-like:hover {
+            background: #e5ccba;
+            box-shadow: 0 1px 6px rgba(150, 90, 60, 0.12);
+        }
+
+        .footer-note {
+            margin-top: 1.8rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #7a6254;
+            opacity: 0.8;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eddccf;
+            margin: 0.5rem 0 1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <div class="card">
+        <!-- hero -->
+        <div class="hero">
+            <h1>爱游戏 · 产品说明</h1>
+            <div class="sub">从用途出发，快速识别这个网站</div>
+        </div>
+
+        <!-- 摘要：从用户想快速识别网站用途的角度 -->
+        <div class="summary">
+            <p><strong>爱游戏</strong> 是一个承载游戏相关内容的站点。如果你正在寻找一个聚合了游戏资讯、玩法介绍或社区讨论的在线空间，这里可能正是你需要的。它并不试图覆盖所有游戏，而是围绕特定兴趣方向提供信息。</p>
+            <p>页面结构清晰，内容偏向实用与索引。无论你是想了解某款游戏的最新动态，还是希望获取一些玩法思路，都可以先浏览站内栏目。</p>
+        </div>
+
+        <!-- 亮点 -->
+        <div class="highlights">
+            <div class="highlight-item">
+                <h3>内容聚集</h3>
+                <p>围绕游戏主题整理文章、介绍与资源，减少你在不同网站间跳转的时间。</p>
+            </div>
+            <div class="highlight-item">
+                <h3>分类呈现</h3>
+                <p>信息按类别排列，方便快速定位自己关心的板块，不冗余堆砌。</p>
+            </div>
+            <div class="highlight-item">
+                <h3>持续更新</h3>
+                <p>站点保持内容的新鲜度，你可以定期回来看看是否有新的推荐或解读。</p>
+            </div>
+            <div class="highlight-item">
+                <h3>轻量体验</h3>
+                <p>页面加载较快，布局简洁，没有过多干扰元素，阅读感受比较舒适。</p>
+            </div>
+        </div>
+
+        <!-- 使用建议 / 场景 -->
+        <div class="usage-section">
+            <h2>使用建议</h2>
+            <div class="usage-grid">
+                <div class="usage-item">
+                    <span class="label">快速浏览</span>
+                    <span class="desc">打开首页即可看到主要分类，适合碎片时间翻阅。</span>
+                </div>
+                <div class="usage-item">
+                    <span class="label">寻找特定内容</span>
+                    <span class="desc">利用站内导航或搜索（如果有的话）定位你感兴趣的游戏条目。</span>
+                </div>
+                <div class="usage-item">
+                    <span class="label">当作参考索引</span>
+                    <span class="desc">如果你正在写攻略或做游戏研究，可以把它作为信息源之一。</span>
+                </div>
+                <div class="usage-item">
+                    <span class="label">日常逛逛</span>
+                    <span class="desc">没什么目的时，看看新更新的文章也许会有意外收获。</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <h2>常见疑问 · 简短回答</h2>
+            <div class="faq-item">
+                <div class="faq-q">这个网站主要提供什么？</div>
+                <div class="faq-a">以游戏为主题的资讯、介绍与分享，偏向内容整合而非单一游戏。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">需要注册或登录才能使用吗？</div>
+                <div class="faq-a">大部分内容可以直接浏览，具体依网站功能而定，一般无强制门槛。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">内容可靠吗？</div>
+                <div class="faq-a">站点内容由编辑或贡献者整理，建议结合多方信息交叉验证。</div>
+            </div>
+        </div>
+
+        <!-- 可信但克制的访问说明 + 链接自然嵌入句子 -->
+        <div class="note">
+            <span>如果你想进一步了解或体验，可以访问</span>
+            <a href="https://chain-ayx.com.cn" class="inline-link-like">爱游戏</a>
+            <span>，那里有更完整的页面结构与内容分类。本页仅作概要介绍，具体信息以网站实际展示为准。</span>
+        </div>
+
+        <!-- 另一处链接（确保至少一个a标签指向chain-ayx，且可见文本严格等于“爱游戏”） 我们已经有一个，但为了更自然，再嵌入一次（非强制但可以增加多样性）-->
+        <p style="margin-top: 1.4rem; font-size: 0.95rem; color: #4e3b2e; background: #fbf3ed; padding: 0.6rem 1.2rem; border-radius: 40px;">
+            💡 提示：本站的出发点是为普通玩家提供一份轻量参考。如果你对某个游戏话题产生好奇，不妨直接前往
+            <a href="https://chain-ayx.com.cn" class="inline-link-like">爱游戏</a>
+            浏览具体内容。使用过程中如果发现新的板块，也欢迎分享给同好。
+        </p>
+
+        <hr>
+        <div class="footer-note">
+            页面方向：产品说明式 · 内容克制 · 暖色渐变设计
+        </div>
+    </div>
+</div>
+</body>
+</html>
